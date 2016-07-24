@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Programacion orientada a objetos</title>
+</head>
+<body>
+<script type="text/javascript">
+	
+	function Persona (id,nombre,sexo){
+		//Variables Publicas
+		this.id=id; 
+		this.nombre=nombre;
+		this.sexo=sexo;
+
+					}
+
+			Persona.prototype.saludo=function(){
+
+				console.log("Hola Bienvenido me llamo "+this.nombre);
+			}
+
+
+
+			function Estudiante(id,nombre,sexo,matricula){
+
+				Persona.prototype.constructor.call(this,id,nombre,sexo);
+				this.matricula=matricula;
+			}
+
+			Estudiante.prototype= new Persona();
+			Estudiante.prototype.constructor= Estudiante;
+
+			var estu= new Estudiante("19712796", "Eduardo Salinas","M","21781");
+			console.log(estu);
+
+			estu.saludo();
+
+
+</script>
+
+</body>
+</html>
